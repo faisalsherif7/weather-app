@@ -30,5 +30,8 @@
     "tabWidth": 4,
     "semi": false,
     "singleQuote": true
+  },
+  "dependencies": {
+    "modern-normalize": "^3.0.0"
   }
 }

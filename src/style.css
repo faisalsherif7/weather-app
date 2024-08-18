@@ -1,5 +1,44 @@
+@import '../node_modules/modern-normalize/modern-normalize.css';
+
+:root {
+    --black: #0d0d0d;
+    --secondary-black: #1f1f1f;
+}
+
+body {
+    background-color: var(--black);
+}
+
 input {
+    padding: 8px;
+    border: 0;
+    background-color: var(--secondary-black);
+    border-radius: 8px;
+    font-size: 15px;
+    outline: 0;
+    caret-color: white;
+    color: white;
+}
+
+.header {
     padding: 10px;
-    border: 1px solid black;
-    font-size: 20px;
+    display: grid;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.form {
+    background-color: var(--secondary-black);
+    border-radius: 20px;
+    padding: 0px 13px 0px 10px;
+    display: flex;
+}
+
+button {
+    background-color: var(--secondary-black);
+    outline: 0;
+    border: 0;
+    color: white;
+    padding: 0;
+    cursor: pointer;
 }
