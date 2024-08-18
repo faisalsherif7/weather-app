@@ -3,8 +3,7 @@ import './style.css';
 async function getWeather(location) {
     const weatherData = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/?key=6GGY5DHYK4ZV5PE82LWWSRBFL`)
     const dataJson = await weatherData.json()
-    return dataJson
+    console.log(dataJson.currentConditions)
 }
 
-const data = getWeather('kyiv')
-console.log(data)
+getWeather('kyiv')
