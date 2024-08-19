@@ -8,8 +8,10 @@ async function getWeather(location) {
 
 function jsonProcessor(data) {
     console.log(data)
-    document.querySelector('.temperature').textContent = `${data.currentConditions.temp} °C`
+    document.querySelector('.temperature').textContent = `${data.currentConditions.temp}°C`
     document.querySelector('.location').textContent = data.resolvedAddress
+    document.querySelector('.conditions').textContent = data.currentConditions.conditions
+    document.querySelector('.description').textContent = data.description
 }
 
 

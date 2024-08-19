@@ -57,14 +57,25 @@ button {
     margin: 30px auto 0px auto;
     display: grid;
     justify-content: center;
+    grid-gap: 5px;
 }
 
 .location {
-    font-size: 30px;
+    font-size: 40px;
     text-align: center;
 }
 
 .temperature {
     font-size: 100px;
+    text-align: center;
+}
+
+.conditions {
+    font-size: 30px;
+    text-align: center;
+}
+
+.description {
+    font-size: 20px;
     text-align: center;
 }
