@@ -21,3 +21,17 @@ document.querySelector('button').addEventListener('click', () => {
     .then((data) => jsonProcessor(data))
     .catch((err) => console.log(err))
 })
+
+async function searchVideo(query) {
+    const response = await fetch(`https://api.pexels.com/videos/search?query=${query}`, {
+        headers: {
+            "Authorization": "iK34t5lfhLCNOFMpX8HhBQKUYNE5yWhhV3RtkPO7k7UywZm1B73yUxRN",
+        }
+    })
+    const json = await response.json()
+    return json.videos[0].video_files[0].link
+}
+
+searchVideo("cloudy weather").then((response) => {
+    console.log(response)
+})
