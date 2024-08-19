@@ -1,12 +1,21 @@
 @import '../node_modules/modern-normalize/modern-normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root {
     --black: #0d0d0d;
     --secondary-black: #1f1f1f;
 }
 
+p {
+    margin: 0;
+}
+
 body {
     background-color: var(--black);
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 input {
@@ -41,4 +50,21 @@ button {
     color: white;
     padding: 0;
     cursor: pointer;
+}
+
+.body {
+    border: 1px solid var(--secondary-black);
+    width: 75ch;
+    margin: 30px auto 0px auto;
+    display: grid;
+    justify-content: center;
+}
+
+.location {
+    font-size: 30px;
+}
+
+.temperature {
+    font-size: 100px;
+    text-align: center;
 }
