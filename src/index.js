@@ -10,11 +10,21 @@ async function getWeather(location) {
 
 function searchWeather(value) {
     getWeather(value)
-        .then((data) => jsonProcessor(data))
-        .catch((err) => console.log(err))
+        .then((data) => populateData(data))
+        .catch((err) => {
+            console.log(err)
+            document.querySelector('source').setAttribute('src', '')
+            document.querySelector('video').load()
+            document.querySelector('.temperature').textContent = ``
+            document.querySelector('.location').textContent = ''
+            document.querySelector('.conditions').textContent = ''
+            document.querySelector('.description').textContent = ''
+            document.querySelector('.error').textContent = ''
+            document.querySelector('.error').textContent = 'Please enter a valid location'
+        })
 }
 
-function jsonProcessor(data) {
+function populateData(data) {
     const temperature = data.currentConditions.temp
     const location = data.resolvedAddress
     const conditions = data.currentConditions.conditions
@@ -24,12 +34,13 @@ function jsonProcessor(data) {
     document.querySelector('.location').textContent = location
     document.querySelector('.conditions').textContent = conditions
     document.querySelector('.description').textContent = description
-    searchVideo(`${conditions} weather`)
+    document.querySelector('.error').textContent = ''
+    searchVideo(`${conditions} weather view of the sky of ${location}`)
 }
 
 async function getVideo(query) {
     const response = await fetch(
-        `https://api.pexels.com/videos/search?query=${query}`,
+        `https://api.pexels.com/videos/search?query=${query}&orientation=landscape&size=large`,
         {
             headers: {
                 Authorization:
@@ -40,7 +51,7 @@ async function getVideo(query) {
     const json = await response.json()
     console.log(json.videos)
     const randomNumber = Math.floor(Math.random() * 10)
-    const result = json.videos[randomNumber].video_files[0].link
+    const result = json.videos[randomNumber].video_files[1].link
     console.log(json.videos[randomNumber].video_files)
     return result
 }
