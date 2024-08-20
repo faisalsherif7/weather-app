@@ -8,8 +8,13 @@ async function getWeather(location) {
     return dataJson
 }
 
-function jsonProcessor(data) {
+function searchWeather(value) {
+    getWeather(value)
+        .then((data) => jsonProcessor(data))
+        .catch((err) => console.log(err))
+}
 
+function jsonProcessor(data) {
     const temperature = data.currentConditions.temp
     const location = data.resolvedAddress
     const conditions = data.currentConditions.conditions
@@ -21,13 +26,6 @@ function jsonProcessor(data) {
     document.querySelector('.description').textContent = description
     searchVideo(`${conditions} weather`)
 }
-
-document.querySelector('button').addEventListener('click', () => {
-    const value = document.querySelector('input').value
-    getWeather(value)
-        .then((data) => jsonProcessor(data))
-        .catch((err) => console.log(err))
-})
 
 async function getVideo(query) {
     const response = await fetch(
@@ -43,13 +41,23 @@ async function getVideo(query) {
     console.log(json.videos)
     const randomNumber = Math.floor(Math.random() * 10)
     const result = json.videos[randomNumber].video_files[0].link
+    console.log(json.videos[randomNumber].video_files)
     return result
 }
 
 function searchVideo(query) {
-    getVideo(query).then((response) => {
-        const source = document.querySelector('source')
-        source.setAttribute('src', response)
-        document.querySelector('video').load()
-    })
+    getVideo(query)
+        .then((response) => {
+            const source = document.querySelector('source')
+            source.setAttribute('src', response)
+            document.querySelector('video').load()
+        })
+        .catch((err) => console.log(err))
 }
+
+document.querySelector('button').addEventListener('click', () => {
+    const value = document.querySelector('input').value
+    searchWeather(value)
+})
+
+searchWeather('new york')
