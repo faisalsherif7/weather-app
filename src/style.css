@@ -13,7 +13,7 @@ p {
 body {
     background-color: var(--black);
     color: white;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-style: normal;
 }
@@ -78,4 +78,13 @@ button {
 .description {
     font-size: 20px;
     text-align: center;
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -100;
 }
