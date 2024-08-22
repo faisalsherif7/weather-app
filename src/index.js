@@ -1,5 +1,17 @@
 import './style.css'
 
+Initialize()
+
+function Initialize() {
+    document.querySelector('button').addEventListener('click', () => {
+        Depopulate()
+        waitingScreen()
+        const value = document.querySelector('input').value
+        searchWeather(value)
+    })
+    searchWeather('New York')
+}
+
 async function getWeather(location) {
     const weatherData = await fetch(
         `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/?key=6GGY5DHYK4ZV5PE82LWWSRBFL&unitGroup=metric`
@@ -43,10 +55,8 @@ async function getVideo(query) {
         }
     )
     const json = await response.json()
-    console.log(json.videos)
     const randomNumber = Math.floor(Math.random() * 10)
     const result = json.videos[randomNumber].video_files[1].link
-    console.log(json.videos[randomNumber].video_files)
     return result
 }
 
@@ -59,15 +69,6 @@ function searchVideo(query) {
         })
         .catch((err) => console.log(err))
 }
-
-document.querySelector('button').addEventListener('click', () => {
-    Depopulate()
-    waitingScreen()
-    const value = document.querySelector('input').value
-    searchWeather(value)
-})
-
-searchWeather('new york')
 
 function Depopulate() {
     document.querySelector('source').setAttribute('src', '')
