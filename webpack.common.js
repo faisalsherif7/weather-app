@@ -8,6 +8,7 @@ const path = require('path');
    plugins: [
      new HtmlWebpackPlugin({
        template: './src/index.html',
+       favicon: './src/favicon.png',
      }),
    ],
    output: {
@@ -25,10 +26,14 @@ const path = require('path');
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
       },
-      {
+      { 
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
       },
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+      },      
     ],
   },
  };
