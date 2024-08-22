@@ -13,13 +13,7 @@ function searchWeather(value) {
         .then((data) => populateData(data))
         .catch((err) => {
             console.log(err)
-            document.querySelector('source').setAttribute('src', '')
-            document.querySelector('video').load()
-            document.querySelector('.temperature').textContent = ``
-            document.querySelector('.location').textContent = ''
-            document.querySelector('.conditions').textContent = ''
-            document.querySelector('.description').textContent = ''
-            document.querySelector('.error').textContent = ''
+            Depopulate()
             document.querySelector('.error').textContent = 'Please enter a valid location'
         })
 }
@@ -67,8 +61,24 @@ function searchVideo(query) {
 }
 
 document.querySelector('button').addEventListener('click', () => {
+    Depopulate()
+    waitingScreen()
     const value = document.querySelector('input').value
     searchWeather(value)
 })
 
 searchWeather('new york')
+
+function Depopulate() {
+    document.querySelector('source').setAttribute('src', '')
+    document.querySelector('video').load()
+    document.querySelector('.temperature').textContent = ``
+    document.querySelector('.location').textContent = ''
+    document.querySelector('.conditions').textContent = ''
+    document.querySelector('.description').textContent = ''
+    document.querySelector('.error').textContent = ''
+}
+
+function waitingScreen() {
+    document.querySelector('.temperature').innerHTML = `<div class="loader"></div>`
+}
