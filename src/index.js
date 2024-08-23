@@ -3,7 +3,8 @@ import './style.css'
 Initialize()
 
 function Initialize() {
-    document.querySelector('button').addEventListener('click', () => {
+    document.querySelector('button').addEventListener('click', (event) => {
+        event.preventDefault()
         Depopulate()
         waitingScreen()
         const value = document.querySelector('input').value
