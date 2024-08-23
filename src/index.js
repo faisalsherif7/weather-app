@@ -9,6 +9,7 @@ function Initialize() {
         const value = document.querySelector('input').value
         searchWeather(value)
     })
+    waitingScreen()
     searchWeather('New York')
 }
 
