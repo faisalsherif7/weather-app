@@ -9,5 +9,4 @@ A simple weather forecast web application that allows users to search for a loca
 - **Async Requests:** Fetches data from the Visual Crossing API with async/await or promises.
 - **Loading Indicator:** Displays a loading component while waiting for the data.
 
-## Link to Live Website
-https://faisalsherif7.github.io/weather-app/
+[[Link to Live Website]](https://faisalsherif7.github.io/weather-app/)
