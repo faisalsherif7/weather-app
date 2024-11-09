@@ -10,4 +10,4 @@ A simple weather forecast web application that allows users to search for a loca
 - **Loading Indicator:** Displays a loading component while waiting for the data.
 
 ## Link to Live Website
-[[Weather App](Your Website URL)](https://faisalsherif7.github.io/weather-app/)
+https://faisalsherif7.github.io/weather-app/
